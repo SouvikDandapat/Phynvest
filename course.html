@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Text-Based Financial Curriculum Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script>
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+"primary": "#11d473",
+"background-light": "#f6f8f7",
+"background-dark": "#102219",
+"navy-custom": "#0d1b14",
+},
+fontFamily: {
+"display": ["Manrope", "sans-serif"]
+},
+borderRadius: {
+"DEFAULT": "0.25rem",
+"lg": "0.5rem",
+"xl": "0.75rem",
+"full": "9999px"
+},
+},
+},
+}
+</script>
+
+<style type="text/tailwindcss">
+body { font-family: 'Manrope', sans-serif; }
+
+.material-symbols-outlined {
+font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+}
+
+.active-nav {
+background-color: rgba(17, 212, 115, 0.15);
+border-left: 4px solid #11d473;
+}
+</style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-navy-custom dark:text-slate-100">
+
+<div class="flex h-screen overflow-hidden">
+
+<!-- SIDEBAR -->
+<aside class="w-1/4 border-r border-primary/10 bg-white dark:bg-background-dark flex flex-col">
+
+<div class="p-6 border-b border-primary/10">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+<h1 class="text-xl font-extrabold tracking-tight uppercase">WealthFlow</h1>
+</div>
+<p class="text-xs text-primary/70 font-semibold mt-1">
+Financial Education Platform
+</p>
+</div>
+
+<nav class="flex-1 overflow-y-auto py-4 px-3 space-y-6">
+
+<button id="beginnerBtn"
+class="flex items-center justify-between w-full px-3 py-2 text-sm font-bold rounded-r-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">potted_plant</span>
+<span>Beginner</span>
+</div>
+</button>
+
+<button id="intermediateBtn"
+class="flex items-center justify-between w-full px-3 py-2 text-sm font-bold rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">trending_up</span>
+<span>Intermediate</span>
+</div>
+</button>
+
+<button id="expertBtn"
+class="flex items-center justify-between w-full px-3 py-2 text-sm font-bold rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">emoji_events</span>
+<span>Expert</span>
+</div>
+</button>
+
+</nav>
+</aside>
+
+<!-- MAIN -->
+<main class="w-3/4 flex flex-col bg-white dark:bg-background-dark overflow-hidden">
+
+<header class="flex items-center justify-between px-12 py-4 border-b border-primary/10">
+<nav class="flex text-[10px] font-bold uppercase tracking-[0.1em] text-slate-400">
+<span id="breadcrumbLevel">Beginner</span>
+<span class="mx-2">/</span>
+<span class="text-primary" id="lessonTitle">Lesson</span>
+</nav>
+</header>
+
+<div class="flex-1 overflow-y-auto">
+<article id="lessonContent" class="max-w-3xl mx-auto py-16 px-8 prose">
+</article>
+</div>
+
+</main>
+</div>
+
+<script>
+
+/* ========================
+   LEVEL DETECTION
+======================== */
+
+const params = new URLSearchParams(window.location.search);
+const level = params.get("level") || "Beginner";
+
+const beginnerBtn = document.getElementById("beginnerBtn");
+const intermediateBtn = document.getElementById("intermediateBtn");
+const expertBtn = document.getElementById("expertBtn");
+const breadcrumbLevel = document.getElementById("breadcrumbLevel");
+const lessonTitle = document.getElementById("lessonTitle");
+const lessonContent = document.getElementById("lessonContent");
+
+function resetActive(){
+beginnerBtn.classList.remove("active-nav");
+intermediateBtn.classList.remove("active-nav");
+expertBtn.classList.remove("active-nav");
+}
+
+resetActive();
+breadcrumbLevel.innerText = level;
+
+/* ========================
+   CONTENT
+======================== */
+
+const beginnerContent = `
+<h1>Introduction to Finance</h1>
+
+<p>Finance is the management of money — how you earn it, save it, invest it, and grow it.</p>
+
+<h2>What is a Stock?</h2>
+<p>A stock represents ownership in a company. When you buy a stock, you own a small part of that company.</p>
+
+<h2>Why Invest?</h2>
+<ul>
+<li>Build wealth over time</li>
+<li>Beat inflation</li>
+<li>Achieve financial freedom</li>
+</ul>
+
+<h2>How to Start Investing</h2>
+<ul>
+<li>Open a Demat account</li>
+<li>Research companies</li>
+<li>Start small</li>
+<li>Think long-term</li>
+</ul>
+`;
+
+const intermediateContent = `
+
+<h1 class="text-5xl font-black text-navy-custom dark:text-white mb-6">
+Candlestick Charts & Patterns
+</h1>
+
+<p>
+Candlestick charts are one of the most important tools used in technical analysis.
+They help traders understand price movement and market psychology.
+Each candle represents price action within a specific time period.
+</p>
+
+<h2>Structure of a Candlestick</h2>
+
+<p>
+Every candlestick shows four key price points:
+</p>
+
+<ul>
+<li><strong>Open</strong> — Price at which stock started</li>
+<li><strong>Close</strong> — Price at which stock ended</li>
+<li><strong>High</strong> — Highest price reached</li>
+<li><strong>Low</strong> — Lowest price reached</li>
+</ul>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Candlestick_chart_anatomy.png"
+class="rounded-xl my-6 shadow-lg">
+
+<h2>Bullish vs Bearish Candles</h2>
+
+<ul>
+<li><strong>Green Candle:</strong> Buyers dominated — price increased</li>
+<li><strong>Red Candle:</strong> Sellers dominated — price decreased</li>
+</ul>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Candlestick_chart_example.png/640px-Candlestick_chart_example.png"
+class="rounded-xl my-6 shadow-lg">
+
+<h2>Major Candlestick Patterns</h2>
+
+<p>
+Candlestick patterns help traders predict whether price may go up or down.
+</p>
+
+<h3>1. Doji Pattern</h3>
+
+<p>
+A Doji forms when opening and closing prices are almost equal.
+It indicates indecision — neither buyers nor sellers are in control.
+Often appears before trend reversal.
+</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Doji_candlestick.png"
+class="rounded-xl my-6 shadow-lg">
+
+<h3>2. Hammer Pattern</h3>
+
+<p>
+The Hammer appears after a downtrend.
+It has a long lower wick and small body.
+It signals that buyers are stepping in — possible bullish reversal.
+</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Hammer_candlestick_pattern.png"
+class="rounded-xl my-6 shadow-lg">
+
+<h3>3. Engulfing Pattern</h3>
+
+<p>
+Occurs when one candle completely engulfs the previous candle.
+</p>
+
+<ul>
+<li><strong>Bullish Engulfing:</strong> Price likely to go up</li>
+<li><strong>Bearish Engulfing:</strong> Price likely to fall</li>
+</ul>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Bullish_engulfing_pattern.svg"
+class="rounded-xl my-6 shadow-lg">
+
+<h3>4. Morning Star</h3>
+
+<p>
+A three-candle bullish reversal pattern appearing at the bottom of a downtrend.
+It signals strong buying momentum.
+</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Morning_star_candlestick_pattern.png"
+class="rounded-xl my-6 shadow-lg">
+
+<h3>5. Shooting Star</h3>
+
+<p>
+Appears at the top of an uptrend.
+It has a long upper wick and small body.
+Signals bearish reversal — sellers entering market.
+</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Shooting_star_candlestick_pattern.png"
+class="rounded-xl my-6 shadow-lg">
+
+<div class="my-10 p-8 bg-primary/5 border-l-4 border-primary rounded-r-xl">
+<p class="font-bold italic">
+“Candlestick charts are the language of the market — learn to read them.”
+</p>
+</div>
+
+`;
+
+const expertContent = `
+<h1 class="text-5xl font-black mb-6">Case Study: Real Market Decisions</h1>
+
+<div class="my-10 p-8 bg-slate-50 rounded-2xl border">
+<h2 class="text-2xl font-bold mb-4">Case 1 — Breakout</h2>
+<div class="space-y-3">
+<button class="quiz-option w-full text-left p-4 border rounded-xl" data-correct="true">
+Buy the stock — breakout confirmed
+</button>
+<button class="quiz-option w-full text-left p-4 border rounded-xl">
+Wait without analysis
+</button>
+<button class="quiz-option w-full text-left p-4 border rounded-xl">
+Sell immediately
+</button>
+</div>
+</div>
+
+<div class="my-10 p-8 bg-slate-50 rounded-2xl border">
+<h2 class="text-2xl font-bold mb-4">Case 2 — Market Crash</h2>
+<div class="space-y-3">
+<button class="quiz-option w-full text-left p-4 border rounded-xl" data-correct="true">
+Hold investments
+</button>
+<button class="quiz-option w-full text-left p-4 border rounded-xl">
+Sell everything
+</button>
+<button class="quiz-option w-full text-left p-4 border rounded-xl">
+Delete app
+</button>
+</div>
+</div>
+
+<div class="my-10 p-8 bg-slate-50 rounded-2xl border">
+<h2 class="text-2xl font-bold mb-4">Case 3 — RSI Overbought</h2>
+<div class="space-y-3">
+<button class="quiz-option w-full text-left p-4 border rounded-xl">
+Buy more
+</button>
+<button class="quiz-option w-full text-left p-4 border rounded-xl" data-correct="true">
+Possible correction ahead
+</button>
+<button class="quiz-option w-full text-left p-4 border rounded-xl">
+Ignore RSI
+</button>
+</div>
+</div>
+`;
+
+/* ========================
+   LOAD CONTENT
+======================== */
+
+if(level === "Beginner"){
+beginnerBtn.classList.add("active-nav");
+lessonTitle.innerText = "Finance Basics";
+lessonContent.innerHTML = beginnerContent;
+}
+else if(level === "Intermediate"){
+intermediateBtn.classList.add("active-nav");
+lessonTitle.innerText = "Candlesticks";
+lessonContent.innerHTML = intermediateContent;
+}
+else if(level === "Expert"){
+expertBtn.classList.add("active-nav");
+lessonTitle.innerText = "Case Studies";
+lessonContent.innerHTML = expertContent;
+initQuiz();
+}
+
+/* ========================
+   QUIZ LOGIC
+======================== */
+
+let correctAnswers = 0;
+
+function initQuiz(){
+
+const options = document.querySelectorAll(".quiz-option");
+
+options.forEach(option => {
+
+option.addEventListener("click", function(){
+
+let parent = this.parentElement;
+let buttons = parent.querySelectorAll(".quiz-option");
+
+if(parent.classList.contains("answered")) return;
+parent.classList.add("answered");
+
+buttons.forEach(btn => btn.disabled = true);
+
+if(this.dataset.correct === "true"){
+correctAnswers++;
+this.style.backgroundColor = "#11d47333";
+this.style.borderColor = "#11d473";
+}
+else{
+this.style.backgroundColor = "#ef444433";
+this.style.borderColor = "#ef4444";
+}
+
+if(correctAnswers === 3){
+setTimeout(()=>{
+alert("🎉 Congratulations! Now you are ready to trade.");
+window.location.href = "dashboard.html";
+},500);
+}
+
+});
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

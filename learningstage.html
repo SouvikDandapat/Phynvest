@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script>
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+"primary": "#11d473",
+"background-light": "#f6f8f7",
+"background-dark": "#102219",
+"navy-900": "#0d1b14",
+"emerald-700": "#065f46",
+"emerald-50": "#ecfdf5"
+},
+fontFamily: {
+"display": ["Manrope", "sans-serif"]
+},
+borderRadius: {
+"DEFAULT": "0.25rem",
+"lg": "0.5rem",
+"xl": "0.75rem",
+"2xl": "1rem",
+"full": "9999px"
+},
+},
+},
+}
+</script>
+
+<style type="text/tailwindcss">
+body {
+font-family: 'Manrope', sans-serif;
+}
+.card-selected {
+border: 2px solid #11d473;
+background-color: #ecfdf5;
+}
+</style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+
+<main class="flex flex-1 items-start justify-center py-16 md:py-24 px-6">
+<div class="max-w-[1100px] w-full flex flex-col items-center">
+
+<!-- Heading -->
+<div class="text-center mb-16">
+<div class="inline-flex items-center justify-center p-3 bg-primary/10 rounded-2xl mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+</div>
+
+<h1 class="text-4xl md:text-5xl font-extrabold text-navy-900 dark:text-white tracking-tight mb-4">
+Select Your Financial Expertise
+</h1>
+
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+Personalize your learning path based on your current knowledge.
+</p>
+</div>
+
+<!-- Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+
+<!-- Beginner -->
+<div id="beginnerCard"
+class="group relative flex flex-col p-8 bg-white dark:bg-slate-900/50 border-2 border-primary rounded-2xl cursor-pointer shadow-xl ring-4 ring-primary/10 transition-all duration-300 card-selected">
+
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-navy-900 text-[10px] font-black uppercase tracking-widest rounded-full shadow-sm">
+Recommended
+</div>
+
+<div class="w-full aspect-video mb-6 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary">potted_plant</span>
+</div>
+
+<h3 class="text-xl font-bold mb-2">Start (Beginner)</h3>
+<p class="text-sm text-slate-500 mb-6">
+Learn the basics of budgeting and saving.
+</p>
+
+<div class="mt-auto flex items-center text-primary font-bold text-sm">
+<span class="material-symbols-outlined mr-2">check_circle</span>
+<span>Selected</span>
+</div>
+</div>
+
+<!-- Intermediate -->
+<div id="intermediateCard"
+class="group flex flex-col p-8 bg-white dark:bg-slate-900/50 border-2 border-transparent rounded-2xl cursor-pointer hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl">
+
+<div class="w-full aspect-video mb-6 rounded-xl bg-emerald-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-slate-400">forest</span>
+</div>
+
+<h3 class="text-xl font-bold mb-2">Intermediate</h3>
+<p class="text-sm text-slate-500 mb-6">
+Master portfolio diversification and ETFs.
+</p>
+
+<div class="mt-auto flex items-center text-slate-400 font-bold text-sm">
+<span>Choose level</span>
+<span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</div>
+</div>
+
+<!-- Expert -->
+<div id="expertCard"
+class="group flex flex-col p-8 bg-white dark:bg-slate-900/50 border-2 border-transparent rounded-2xl cursor-pointer hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl">
+
+<div class="w-full aspect-video mb-6 rounded-xl bg-emerald-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-slate-400">apartment</span>
+</div>
+
+<h3 class="text-xl font-bold mb-2">Expert</h3>
+<p class="text-sm text-slate-500 mb-6">
+Advanced options strategies and technical analysis.
+</p>
+
+<div class="mt-auto flex items-center text-slate-400 font-bold text-sm">
+<span>Choose level</span>
+<span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</div>
+</div>
+
+</div>
+
+<!-- Continue Button -->
+<div class="mt-20 w-full flex flex-col items-center gap-4">
+<button id="continueBtn"
+class="flex min-w-[280px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-primary text-navy-900 text-lg font-extrabold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all">
+Continue to Courses
+</button>
+
+<p class="text-slate-400 dark:text-slate-600 text-xs">
+You can change your learning path at any time from your profile settings.
+</p>
+</div>
+
+</div>
+</main>
+</div>
+</div>
+
+<!-- ✅ JavaScript -->
+<script>
+
+let beginner = document.getElementById("beginnerCard");
+let intermediate = document.getElementById("intermediateCard");
+let expert = document.getElementById("expertCard");
+let continueBtn = document.getElementById("continueBtn");
+
+let cards = [beginner, intermediate, expert];
+let selectedLevel = "Beginner"; // Default
+
+function selectCard(selectedCard, level) {
+
+    cards.forEach(card => {
+        card.classList.remove("card-selected");
+    });
+
+    selectedCard.classList.add("card-selected");
+    selectedLevel = level;
+}
+
+beginner.addEventListener("click", () => selectCard(beginner, "Beginner"));
+intermediate.addEventListener("click", () => selectCard(intermediate, "Intermediate"));
+expert.addEventListener("click", () => selectCard(expert, "Expert"));
+
+continueBtn.addEventListener("click", function () {
+    window.location.href = "course.html?level=" + selectedLevel;
+});
+
+</script>
+
+</body>
+</html>

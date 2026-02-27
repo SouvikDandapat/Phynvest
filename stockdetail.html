@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PHYNVEST TRADING</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<script>
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+primary: "#25f478",
+background: "#0b120e",
+surface: "#121e17",
+highlight: "#1a2c22",
+danger: "#ff4d4d"
+}
+}
+}
+}
+</script>
+<style>
+@keyframes gradientMove {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+.animate-gradient {
+background-size: 300% 300%;
+animation: gradientMove 6s ease infinite;
+}
+</style>
+</head>
+
+<body class="bg-background text-white font-[Manrope] min-h-screen flex flex-col">
+
+<header class="flex justify-between items-center px-8 py-4 bg-surface border-b border-highlight">
+<h1  class="text-3xl md:text-5xl font-extrabold tracking-wide 
+bg-gradient-to-r from-green-400 via-cyan-400 via-purple-500 to-red-500 
+bg-clip-text text-transparent animate-gradient" >
+WELCOME TO PHYNVEST - Your Own Trading Platform
+</h1>
+<div class="relative">
+<span class="material-symbols-outlined">notifications</span>
+<span id="notifyDot" class="absolute top-0 right-0 w-2 h-2 bg-danger rounded-full"></span>
+</div>
+</header>
+
+<div class="flex flex-1">
+
+<aside class="w-64 bg-surface p-6 space-y-4 border-r border-highlight">
+<p class="text-xs text-gray-400 uppercase">Markets</p>
+<div class="space-y-2">
+<div class="cursor-pointer hover:text-primary" onclick="loadMarket('NASDAQ:AAPL','Apple Inc.')">AAPL</div>
+<div class="cursor-pointer hover:text-primary" onclick="loadMarket('NASDAQ:TSLA','Tesla Inc.')">TSLA</div>
+<!--<div class="cursor-pointer hover:text-primary" onclick="loadMarket('NSE:NIFTY50','NIFTY 50')">NIFTY 50</div>-->
+<div class="cursor-pointer hover:text-primary" onclick="loadMarket('BINANCE:BTCUSDT','Bitcoin')">BTC</div>
+<!--<div class="cursor-pointer hover:text-primary" onclick="loadMarket('COMEX:GC1!','Gold Futures')">GOLD</div>-->
+</div>
+</aside>
+
+<main class="flex-1 p-6 overflow-y-auto">
+
+<h2 id="marketTitle" class="text-2xl font-bold mb-6">Apple Inc.</h2>
+
+<div class="bg-surface border border-highlight rounded-xl p-4 h-[450px]">
+<div id="chart_container" class="w-full h-full"></div>
+</div>
+
+<!-- TRADE PANEL -->
+<div class="bg-surface border border-highlight rounded-xl p-4 mt-6">
+<h3 class="text-lg font-semibold mb-4">Trade Panel</h3>
+<div class="flex flex-col md:flex-row gap-4 items-center">
+<input id="tradeAmount" type="number" placeholder="Enter Amount"
+class="bg-highlight text-white px-4 py-2 rounded-lg w-full md:w-64 outline-none"/>
+
+<button onclick="tradeIn()"
+class="bg-green-500 text-black px-6 py-2 rounded-lg font-semibold hover:opacity-80 transition">
+Trade In
+</button>
+
+<button onclick="tradeOut()"
+class="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:opacity-80 transition">
+Trade Out
+</button>
+</div>
+
+<div class="mt-4 text-sm">
+<p>Status: <span id="tradeStatus" class="text-gray-400">No Active Trade</span></p>
+<p>Invested: ₹<span id="investedAmount">0</span></p>
+<p>P/L: ₹<span id="tradePL">0</span></p>
+</div>
+</div>
+
+<!-- RISK -->
+<div class="bg-surface border border-highlight rounded-xl p-4 mt-6">
+<h3 class="text-lg font-semibold mb-4">Risk Prediction</h3>
+<div class="w-full bg-highlight h-4 rounded-full overflow-hidden">
+<div id="riskBar" class="h-full bg-primary transition-all duration-500"></div>
+</div>
+<div class="mt-3 flex justify-between">
+<span id="riskLabel">Medium Risk</span>
+<span id="riskPercent">50%</span>
+</div>
+</div>
+
+<!-- NEWS -->
+<div class="bg-surface border border-highlight rounded-xl p-4 mt-6">
+<h3 class="text-lg font-semibold mb-4">Latest News</h3>
+<div id="newsPanel" class="space-y-3 text-sm"></div>
+</div>
+
+<div class="bg-surface border border-highlight rounded-xl p-4 mt-6">
+<h3 class="text-lg font-semibold mb-4">Trending From Global Platforms</h3>
+<div id="multiNewsContainer" class="space-y-3 text-sm"></div>
+</div>
+
+</main>
+</div>
+
+<!-- GLASS POPUP -->
+<div id="sideNewsPopup"
+class="fixed top-20 right-6 w-96 backdrop-blur-xl bg-white/5 border border-white/20 rounded-2xl p-6 shadow-2xl translate-x-full transition-all duration-500 z-50">
+
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div id="liveDot" class="w-3 h-3 rounded-full animate-ping"></div>
+<span id="alertLabel" class="font-bold tracking-wider text-sm"></span>
+</div>
+<span id="impactScore" class="text-xs px-3 py-1 rounded-full font-semibold"></span>
+</div>
+
+<h4 id="sidePopupTitle" class="font-bold text-white text-base mb-3"></h4>
+<a id="sidePopupLink" target="_blank" class="text-sm underline transition">
+View Full News →
+</a>
+
+</div>
+
+<!-- ALERT SOUNDS (Added Feature Only) -->
+<audio id="crashSound" preload="auto">
+  <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="surgeSound" preload="auto">
+  <source src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3" type="audio/mpeg">
+</audio>
+<script src="https://s3.tradingview.com/tv.js"></script>
+
+
+<script>
+    let soundEnabled = true;
+let newsQueue=[], alertInterval;
+
+function loadMarket(symbol,name){
+document.getElementById("marketTitle").innerText=name;
+document.getElementById("chart_container").innerHTML="";
+new TradingView.widget({
+autosize:true,
+symbol:symbol,
+interval:"60",
+timezone:"Asia/Kolkata",
+theme:"dark",
+container_id:"chart_container"
+});
+generateRisk(symbol);
+}
+
+function generateRisk(symbol){
+let base=50;
+if(symbol.includes("BTC")) base=85;
+else if(symbol.includes("NIFTY")) base=40;
+else if(symbol.includes("GC1")) base=30;
+let risk=Math.max(10,Math.min(95,base+(Math.random()*20-10)));
+document.getElementById("riskBar").style.width=risk+"%";
+document.getElementById("riskPercent").innerText=risk.toFixed(0)+"%";
+document.getElementById("riskLabel").innerText=risk>70?"High Risk":risk<35?"Low Risk":"Medium Risk";
+}
+
+async function fetchTrendingNews(){
+const feeds=[
+"https://api.rss2json.com/v1/api.json?rss_url=https://finance.yahoo.com/rss/topstories",
+"https://api.rss2json.com/v1/api.json?rss_url=https://www.cnbc.com/id/10000664/device/rss/rss.html",
+"https://api.rss2json.com/v1/api.json?rss_url=https://feeds.marketwatch.com/marketwatch/topstories/"
+];
+
+const stockKeywords=["stock","shares","market","nasdaq","dow","nifty","sensex","trading","ipo","earnings","profit","loss","investor","wall street","rally","selloff","fed","rates"];
+
+newsQueue=[];
+let latest=document.getElementById("newsPanel");
+let trending=document.getElementById("multiNewsContainer");
+latest.innerHTML=""; trending.innerHTML="";
+
+for(let feed of feeds){
+try{
+let res=await fetch(feed);
+let data=await res.json();
+if(data.items){
+data.items.forEach(item=>{
+let title=item.title.toLowerCase();
+if(stockKeywords.some(k=>title.includes(k))){
+newsQueue.push({title:item.title,link:item.link});
+}
+});
+}
+}catch{}
+}
+
+newsQueue=newsQueue.slice(0,10);
+
+newsQueue.forEach(a=>{
+latest.innerHTML+=`
+<div class="bg-highlight border border-primary/20 rounded-lg p-3 hover:bg-primary/10 transition">
+<a href="${a.link}" target="_blank" class="block hover:text-primary font-medium">
+${a.title}
+</a>
+</div>`;
+});
+
+newsQueue.forEach(a=>{
+trending.innerHTML+=`
+<div class="bg-highlight border border-primary/20 rounded-lg p-3 hover:bg-primary/10 transition">
+<a href="${a.link}" target="_blank" class="block hover:text-primary font-medium">
+${a.title}
+</a>
+</div>`;
+});
+
+startHighAlerts();
+}
+
+function startHighAlerts(){
+if(alertInterval) clearInterval(alertInterval);
+let index=0;
+alertInterval=setInterval(()=>{
+if(newsQueue.length===0) return;
+let a=newsQueue[index];
+showPopup(a.title,a.link);
+index=(index+1)%newsQueue.length;
+},5000);
+}
+
+function showPopup(title,link){
+
+
+
+
+
+let popup=document.getElementById("sideNewsPopup");
+let dot=document.getElementById("liveDot");
+let label=document.getElementById("alertLabel");
+let impact=document.getElementById("impactScore");
+let linkBtn=document.getElementById("sidePopupLink");
+
+const crash=["crash","collapse","bankruptcy","war","ban","fraud","drop","plunge"];
+const positive=["surge","profit","growth","record","upgrade","rally","beats","gain"];
+
+let lower=title.toLowerCase();
+let sentiment="neutral", impactLevel="Medium";
+
+if(crash.some(w=>lower.includes(w))){sentiment="negative"; impactLevel="High";}
+else if(positive.some(w=>lower.includes(w))){sentiment="positive"; impactLevel="High";}
+else if(lower.includes("report")){impactLevel="Low";}
+
+popup.classList.remove("border-red-500","border-green-500","border-blue-500");
+
+if(sentiment==="negative"){
+popup.classList.add("border-red-500");
+dot.className="w-3 h-3 bg-red-500 rounded-full animate-ping";
+label.innerText="🔴 MARKET CRASH ALERT";
+label.className="text-red-500 font-bold text-sm";
+impact.className="text-xs px-3 py-1 rounded-full font-semibold bg-red-500/20 text-red-400";
+linkBtn.className="text-red-400 text-sm underline hover:text-red-300 transition";
+}
+else if(sentiment==="positive"){
+popup.classList.add("border-green-500");
+dot.className="w-3 h-3 bg-green-500 rounded-full animate-ping";
+label.innerText="🟢 MARKET SURGE ALERT";
+label.className="text-green-400 font-bold text-sm";
+impact.className="text-xs px-3 py-1 rounded-full font-semibold bg-green-500/20 text-green-400";
+linkBtn.className="text-green-400 text-sm underline hover:text-green-300 transition";
+}
+else{
+popup.classList.add("border-blue-500");
+dot.className="w-3 h-3 bg-blue-500 rounded-full animate-ping";
+label.innerText="🔵 MARKET UPDATE";
+label.className="text-blue-400 font-bold text-sm";
+impact.className="text-xs px-3 py-1 rounded-full font-semibold bg-blue-500/20 text-blue-400";
+linkBtn.className="text-blue-400 text-sm underline hover:text-blue-300 transition";
+}
+
+impact.innerText="Impact: "+impactLevel;
+// ===== SOUND FEATURE FIXED =====
+if(soundEnabled && impactLevel === "High"){
+    if(sentiment === "negative"){
+        const crashSound = document.getElementById("crashSound");
+        crashSound.currentTime = 0;
+        crashSound.play();
+    }
+    else if(sentiment === "positive"){
+        const surgeSound = document.getElementById("surgeSound");
+        surgeSound.currentTime = 0;
+        surgeSound.play();
+    }
+}
+
+document.getElementById("sidePopupTitle").innerText=title;
+linkBtn.href=link;
+
+popup.classList.remove("translate-x-full");
+setTimeout(()=>popup.classList.add("translate-x-full"),4500);
+}
+
+setInterval(fetchTrendingNews,680000);
+
+let activeTrade=false, invested=0, entryPrice=0;
+function getPrice(){return 100+Math.random()*50;}
+
+function tradeIn(){
+let amount=parseFloat(document.getElementById("tradeAmount").value);
+if(!amount||amount<=0||activeTrade) return;
+activeTrade=true; invested=amount; entryPrice=getPrice();
+document.getElementById("tradeStatus").innerText="Trade Active";
+document.getElementById("tradeStatus").classList.replace("text-gray-400","text-green-500");
+document.getElementById("investedAmount").innerText=invested.toFixed(2);
+updatePL();
+}
+
+function tradeOut(){
+if(!activeTrade) return;
+let exit=getPrice();
+let profit=((exit-entryPrice)/entryPrice)*invested;
+document.getElementById("tradePL").innerText=profit.toFixed(2);
+document.getElementById("tradeStatus").innerText="No Active Trade";
+document.getElementById("tradeStatus").classList.replace("text-green-500","text-gray-400");
+activeTrade=false; invested=0; entryPrice=0;
+}
+
+function updatePL(){
+if(!activeTrade) return;
+let current=getPrice();
+let profit=((current-entryPrice)/entryPrice)*invested;
+document.getElementById("tradePL").innerText=profit.toFixed(2);
+setTimeout(updatePL,3000);
+}
+
+window.onload=function(){
+loadMarket("NASDAQ:AAPL","Apple Inc.");
+fetchTrendingNews();
+};
+</script>
+
+<!-- FOOTER CREDIT -->
+<footer class="text-center py-4 text-sm text-gray-400 border-t border-highlight mt-6">
+Design and Implemented by <span class="text-primary font-semibold">Subham Banerjee</span> | Team Phynix
+</footer>
+
+</body>
+</html>
+</script>
+
+</body>
+</html>

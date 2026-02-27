@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DigiWallet Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0dccf2",
+                        "primary-dark": "#0bb6d9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#101f22",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#162a2e",
+                        "text-main": "#0d191c",
+                        "text-muted": "#498e9c",
+                    },
+                    fontFamily: {
+                        display: ["Public Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased min-h-screen flex flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full bg-surface-light/90 backdrop-blur-md border-b border-[#e7f1f4] dark:bg-surface-dark/90 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-4 text-text-main dark:text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined !text-[32px]">account_balance_wallet</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em] text-slate-900 dark:text-white">DigiWallet</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<div class="flex items-center gap-9">
+<a class="text-slate-600 hover:text-primary text-sm font-medium leading-normal dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-slate-600 hover:text-primary text-sm font-medium leading-normal dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">About</a>
+<a class="text-slate-600 hover:text-primary text-sm font-medium leading-normal dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Partners</a>
+</div>
+<a href="Aadharver.html">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary-dark text-slate-900 text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+<span class="truncate">Sign In</span>
+</button>
+</a>
+</div>
+<!-- Mobile menu button -->
+<div class="flex md:hidden">
+<button class="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" type="button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+<!-- Hero Section -->
+<div class="@container">
+<div class="flex flex-col-reverse gap-8 lg:flex-row lg:items-center">
+<div class="flex flex-col gap-6 flex-1 lg:max-w-xl">
+<div class="flex flex-col gap-4 text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 w-fit">
+<span class="material-symbols-outlined text-primary text-sm">verified_user</span>
+<span class="text-xs font-bold text-primary uppercase tracking-wide">Government Approved</span>
+</div>
+<h1 class="text-slate-900 dark:text-white text-4xl font-black leading-[1.1] tracking-[-0.033em] md:text-5xl lg:text-6xl">
+                                    Your Authentic Documents <span class="text-primary">Anytime, Anywhere</span>
+</h1>
+<h2 class="text-slate-600 dark:text-slate-400 text-lg font-normal leading-relaxed max-w-lg">
+                                    Access your authentic digital documents from government agencies securely. Experience the power of paperless governance today.
+                                </h2>
+</div>
+<div class="flex flex-wrap gap-4 mt-2">
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary hover:bg-primary-dark text-slate-900 text-base font-bold leading-normal tracking-[0.015em] transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40">
+<span class="truncate">Get Started</span>
+</button>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white border border-slate-200 hover:border-primary/50 text-slate-700 hover:text-primary text-base font-bold leading-normal tracking-[0.015em] transition-all dark:bg-surface-dark dark:border-slate-700 dark:text-slate-300 dark:hover:text-white">
+<span class="truncate">Learn More</span>
+</button>
+</div>
+<div class="flex items-center gap-4 mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark bg-slate-200 bg-cover" data-alt="User portrait 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7fAa3_mhyF5soWmGbXmJtYhVELHqtXaH_t_I55GTwkoWLMpJoHGH2Zh6gz9ccMebJE2o-YdfJnezXuvx8rM1rXrdcsddpVMwWTaStwVB_BZWUJjlQn2zG61n53CyUrbSBJqbCA-zLoNpreDAYaTVVxu02utwRorJ-QsoE8v78ofqw5UWfRduImpZJd7w4magg6ni1LyQ3lQWza0_OzFYLlKtfrgHiY0q_TwFqEDCNGrFuKSZUHpkr1sh9X1eBU0dLX77U2JRNiIY");'></div>
+<div class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark bg-slate-200 bg-cover" data-alt="User portrait 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArdAs93CgADsmeJzu3YhE4YiIhYrUU0yqsGz1XqJMdcYCXLIbH31NOTQmbMxe86aaFSu_YYQJXr4Mn59YCk7_miDMGGCP-3C0D5w6HzYYhSTa9dpE46cp7oeE44QNV-J7UKgHPPJwZh-yK04IzxfWsKHY2hGeNCik14Pv00FI53JD4S07xCGg2-DvkHQVPFFBCVBlJa0RUJ5Zv6SStXQfRJ3RUb1eiQlBysGu3StqVtPzult3NDV3i9suw-LYv-JakWcFg-sc7YmE");'></div>
+<div class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark bg-slate-200 bg-cover" data-alt="User portrait 3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsciAC-KDARVdFXGmj6eyu7nimJLZOTILtL3oVVKyaCXUhcLradrT4ORbozl3vCosAV9cEbfRDZt5_QrGW8zyB-j-nbGEU31kSVoOjK1E2kwvwrFhHBoN8NkI0Wp1ivk8VwA9oYmkr97KQ3XTFfw6bmAO3mI2sgfGO8KEOwPkz9cAJ5Qq5VYb26Y4OUL1ShJr_DpgrSWDk8NTtWNC9BPbTbFXeLvrdH2tN9osB9ti_FyVX6maUxypsTtGND7lvRcjM6HSpBGTLWqY");'></div>
+<div class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark bg-primary flex items-center justify-center text-xs font-bold text-slate-900">+2M</div>
+</div>
+<p class="text-sm font-medium text-slate-600 dark:text-slate-400">Trusted by <span class="text-slate-900 dark:text-white font-bold">2 Million+</span> citizens</p>
+</div>
+</div>
+<div class="flex-1 w-full lg:h-[500px] relative">
+<div class="w-full h-full bg-slate-100 rounded-2xl overflow-hidden shadow-2xl relative bg-cover bg-center" data-alt="Person using a digital wallet on a tablet" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBYLHDWVoF0vkQADqTXVjivUxB_UdvLQgg3dNpMaFOrG0JurQfGG9r2HkKnD56Tb8PkIJw3OtbS91_NH8mYHWp_iB_Qe0Bl4FVvGxFDeG6Eoulnn4pingrWgNmMDxLl-7ZSrg3334-Ue0JMoVzckB9UEp_QIHIsGj-leY7xxFAL3u1eZtBXax1CN71hp9XyZ0SzRIE1_vh8WmqWAdG_UUCSHDaTY5PxD_EtodllVLOjAvfy0BWT9l0DwXIML5Y7a9zjfxkmTA6Hg5I");'>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg dark:bg-surface-dark/95 border border-white/20">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-500 uppercase tracking-wider dark:text-slate-400">Verification Status</p>
+<p class="text-lg font-bold text-slate-900 dark:text-white">Identity Verified Successfully</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating decorative elements -->
+<div class="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
+</div>
+</div>
+</div>
+<!-- Features Section -->
+<div class="mt-24 flex flex-col gap-12 @container">
+<div class="text-center max-w-3xl mx-auto">
+<h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-3">Core Features</h2>
+<h3 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight sm:text-4xl mb-4">
+                            Why Choose DigiWallet?
+                        </h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg font-normal leading-relaxed">
+                            Experience the future of document management with our robust, secure, and user-friendly platform designed for the modern citizen.
+                        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+<!-- Feature 1 -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-8 transition-all hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 dark:bg-surface-dark dark:border-slate-800">
+<div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined text-3xl">description</span>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Paperless Governance</h4>
+<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                                    Reduce paper usage and contribute to a greener environment by accessing authentic digital documents directly from issuing agencies.
+                                </p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-8 transition-all hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 dark:bg-surface-dark dark:border-slate-800">
+<div class="h-12 w-12 rounded-lg bg-green-50 flex items-center justify-center text-green-600 group-hover:bg-primary group-hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Secure &amp; Private</h4>
+<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                                    Your data is encrypted with bank-grade security protocols. 256-bit encryption ensures your documents are for your eyes only.
+                                </p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-8 transition-all hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 dark:bg-surface-dark dark:border-slate-800">
+<div class="h-12 w-12 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 group-hover:bg-primary group-hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined text-3xl">devices</span>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Easy Access</h4>
+<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                                    Access your driving license, vehicle registration, and academic certificates on the go, anytime you need them from any device.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Section -->
+<div class="mt-24 rounded-2xl bg-slate-900 dark:bg-surface-dark px-6 py-12 md:py-16 text-center md:text-left relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-800">
+<div class="flex flex-col items-center justify-center p-4">
+<span class="text-4xl font-black text-white mb-2">150M+</span>
+<span class="text-primary font-medium uppercase text-sm tracking-wider">Registered Users</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4">
+<span class="text-4xl font-black text-white mb-2">5.6B+</span>
+<span class="text-primary font-medium uppercase text-sm tracking-wider">Issued Documents</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4">
+<span class="text-4xl font-black text-white mb-2">2.3K+</span>
+<span class="text-primary font-medium uppercase text-sm tracking-wider">Issuing Organizations</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4">
+<span class="text-4xl font-black text-white mb-2">24/7</span>
+<span class="text-primary font-medium uppercase text-sm tracking-wider">Secure Access</span>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="mt-24 flex flex-col md:flex-row items-center gap-10 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl p-8 md:p-12 shadow-sm">
+<div class="flex-1 space-y-4">
+<h3 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Ready to go digital?</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg">Join millions of citizens who have already switched to a secure, paperless way of life. Sign up for DigiWallet today.</p>
+<div class="pt-2">
+<button class="flex w-full md:w-auto min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary hover:bg-primary-dark text-slate-900 text-base font-bold leading-normal tracking-[0.015em] transition-all">
+                                 Create Free Account
+                             </button>
+</div>
+</div>
+<div class="flex-shrink-0 w-full md:w-64 h-48 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Smartphone displaying digital ID card" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDG9ouiMao_9DL5coigLXK0wUAWgFaPE3yqDpD-eGPU0V04h2bCGirDQIIpNPLtCtcPNJbM7oqzDPhKp1ys44lNrC4h95Bkrm4OjloWE-85b4tJqc_2FjgNOWzwdZF9Z2MnnWs16Oz9WQwi1zgv5Ga6KQpGncz98FK9CLHjW-bChSWIaUT35Q3qzq9KtFj_uIo5S_Sj6S9oi2-5Al1mdK4JqqMTUb_qJ9AqGd0n_vbZQaSRj0S62lr6yLBZujU6Lw1nu2fbf4g8Ulw");'></div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white border-t border-slate-200 dark:bg-surface-dark dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">account_balance_wallet</span>
+<span class="text-xl font-bold text-slate-900 dark:text-white">DigiWallet</span>
+</div>
+<p class="text-slate-500 text-sm dark:text-slate-400">
+                            Empowering citizens with secure access to their digital documents anytime, anywhere.
+                        </p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4">Platform</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">How it Works</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Issuers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Requesters</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4">Resources</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Circulars</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">User Manual</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4">Connect</h4>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">call</span>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-sm dark:text-slate-400">© 2024 DigiWallet. All rights reserved.</p>
+<div class="flex gap-6 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

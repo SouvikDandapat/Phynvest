@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Investment Stock Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "success": "#10b981",
+                        "danger": "#ef4444",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-none">FinanceHub</h1>
+<p class="text-xs text-slate-500 mt-1">Pro Investor</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-sm">My Portfolio</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">visibility</span>
+<span class="text-sm">Watchlist</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">newspaper</span>
+<span class="text-sm">Market News</span>
+</a>
+<div class="pt-4 pb-2 px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400">System</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="learningstage.html">
+<span class="material-symbols-outlined">school</span>
+<span class="text-sm">Learn</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="news.html">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-sm">Trending News</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<div class="size-9 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4lkzT9SvUEiG2Q9zy2gqqtAyjp8EjfaN9_86A-beURvWYz-dH0EYMweC2O69zKsuV0OqfPikiQmuaIATUJogLpsjII3XnXJeyYJ-OV9t6zRvrVOYBRL52teB7ZzSum4LeF-_M7d33qrTfDZgPZ19YYq98DJZwaTOnTNaOo2EBbmJvIIczJAYd9kpTf_DMK2wcwPAE6vxkc6Y3GQMOPeGl-Dy6tiY-Sz_Wb_M3MBi_a-5AZVOt6AEHcaeHZxoPyOSI7k04XVBMbTE"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-semibold truncate">Alex Rivera</p>
+<p class="text-xs text-slate-500 truncate">alex@financehub.com</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-8 flex items-center justify-between z-10">
+<div class="w-96">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-500" placeholder="Search stocks, indices, ETFs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2.5 size-2 bg-danger rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<button 
+id="adharbutton"
+class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        Trade Now
+                    </button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="text-slate-500 text-sm font-medium">Total Portfolio Value</span>
+<div class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+</div>
+<h3 class="text-3xl font-extrabold">$0</h3>
+<div class="mt-2 flex items-center gap-1 text-success text-sm font-bold">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+<span>+0%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="text-slate-500 text-sm font-medium">Day Change (%)</span>
+<div class="p-2 bg-success/10 text-success rounded-lg">
+<span class="material-symbols-outlined">leaderboard</span>
+</div>
+</div>
+<h3 class="text-3xl font-extrabold text-success">+2.45%</h3>
+<div class="mt-2 text-slate-400 text-xs">Based on current market open</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="text-slate-500 text-sm font-medium">Top Gainer Today</span>
+<div class="p-2 bg-amber-500/10 text-amber-500 rounded-lg">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+</div>
+<h3 class="text-3xl font-extrabold">NVDA</h3>
+<div class="mt-2 flex items-center gap-1 text-success text-sm font-bold">
+<span class="material-symbols-outlined text-[18px]">arrow_drop_up</span>
+<span>+4.2%</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Portfolio Table Section -->
+<div class="col-span-12 xl:col-span-8 space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold">Your Portfolio</h2>
+<button class="text-primary text-sm font-semibold hover:underline">View All</button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 text-[11px] uppercase tracking-wider font-bold">
+<tr>
+<th class="px-6 py-4">Ticker / Company</th>
+<th class="px-6 py-4 text-right">Price</th>
+<th class="px-6 py-4 text-right">24h Change</th>
+<th class="px-6 py-4 text-right">Market Cap</th>
+<th class="px-6 py-4">Sector</th>
+<th class="px-6 py-4">Performance</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs">AAPL</div>
+<div>
+<p class="font-bold text-sm">Apple Inc.</p>
+<p class="text-xs text-slate-500">NasdaqGS</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right font-semibold text-sm">$192.42</td>
+<td class="px-6 py-4 text-right">
+<span class="text-success text-sm font-bold">+1.54%</span>
+</td>
+<td class="px-6 py-4 text-right text-slate-500 text-sm">2.98T</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase">Tech</span>
+</td>
+<td class="px-6 py-4">
+<div class="h-8 w-24 bg-gradient-to-r from-success/0 via-success/20 to-success/50 rounded flex items-end">
+<div class="w-full h-1/2 border-b-2 border-success border-opacity-50"></div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs">TSLA</div>
+<div>
+<p class="font-bold text-sm">Tesla Motors</p>
+<p class="text-xs text-slate-500">NasdaqGS</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right font-semibold text-sm">$178.64</td>
+<td class="px-6 py-4 text-right">
+<span class="text-danger text-sm font-bold">-2.12%</span>
+</td>
+<td class="px-6 py-4 text-right text-slate-500 text-sm">560B</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase">Auto</span>
+</td>
+<td class="px-6 py-4">
+<div class="h-8 w-24 bg-gradient-to-r from-danger/50 via-danger/20 to-danger/0 rounded flex items-center">
+<div class="w-full h-[2px] bg-danger bg-opacity-30"></div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs">MSFT</div>
+<div>
+<p class="font-bold text-sm">Microsoft Corp.</p>
+<p class="text-xs text-slate-500">NasdaqGS</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right font-semibold text-sm">$415.50</td>
+<td class="px-6 py-4 text-right">
+<span class="text-success text-sm font-bold">+0.88%</span>
+</td>
+<td class="px-6 py-4 text-right text-slate-500 text-sm">3.12T</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase">Blue Chip</span>
+</td>
+<td class="px-6 py-4">
+<div class="h-8 w-24 bg-gradient-to-r from-success/10 via-success/30 to-success/20 rounded flex items-center">
+<div class="w-full h-[2px] bg-success bg-opacity-40"></div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs">JNJ</div>
+<div>
+<p class="font-bold text-sm">Johnson &amp; Johnson</p>
+<p class="text-xs text-slate-500">NYSE</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right font-semibold text-sm">$155.12</td>
+<td class="px-6 py-4 text-right">
+<span class="text-success text-sm font-bold">+0.12%</span>
+</td>
+<td class="px-6 py-4 text-right text-slate-500 text-sm">375B</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase">Healthcare</span>
+</td>
+<td class="px-6 py-4">
+<div class="h-8 w-24 bg-slate-100 dark:bg-slate-800 rounded opacity-40"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Side Panels: Trending & News -->
+<div class="col-span-12 xl:col-span-4 space-y-8">
+<!-- Trending Stocks -->
+<div class="space-y-4">
+<h2 class="text-xl font-bold">Trending Stocks</h2>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-4 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs">NVDA</div>
+<div>
+<p class="text-sm font-bold">NVIDIA</p>
+<p class="text-xs text-slate-500">Semiconductors</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">$890.12</p>
+<p class="text-xs text-success font-bold">+4.12%</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs">META</div>
+<div>
+<p class="text-sm font-bold">Meta Platforms</p>
+<p class="text-xs text-slate-500">Social Media</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">$498.54</p>
+<p class="text-xs text-success font-bold">+2.84%</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs">XOM</div>
+<div>
+<p class="text-sm font-bold">Exxon Mobil</p>
+<p class="text-xs text-slate-500">Energy</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">$115.67</p>
+<p class="text-xs text-danger font-bold">-0.45%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Latest Market News -->
+<div class="space-y-4">
+<h2 class="text-xl font-bold">Latest Market News</h2>
+<div class="space-y-4">
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex gap-4 hover:border-primary transition-colors cursor-pointer">
+<div class="size-20 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Stock market chart up trend" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM5UKajUAuTDmRvUYBnZx68Pfp7s6RU8KKXQGKyYJnUgHX0_9T78pyEb9pUryFHfBXLT28xcXftNXU4bYMaFTs5XhS-kTnmkkJFEFXHF4uNAi0VJlG2ZgAdQ1wHIDe-QVvrAjlLOf0U4ad2qVSevxK6g0sp-P0K8uNpNsqwZpLdx3Uq2opHsfcBDXYNZdMcp4SKKjAjjjcGb1ai03k9fhXsAD6E4nPfjna0mSKcREpQrI6tdXjoPOlnHnLnS4HUlWPiwCOOdhyWzI"/>
+</div>
+<div class="flex-1">
+<p class="text-[10px] text-primary font-bold uppercase mb-1">Economy</p>
+<h4 class="text-sm font-bold leading-tight line-clamp-2">Federal Reserve hints at potential rate cuts by late Q3</h4>
+<p class="text-[10px] text-slate-500 mt-2">2 hours ago • 5 min read</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex gap-4 hover:border-primary transition-colors cursor-pointer">
+<div class="size-20 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Corporate technology headquarters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvLsJn39VOSXSQn4VjI7a7CzrHNc3zTjRrUSVILuEWan_THH3ZsmsTe3UVctmLVjcQNw5nUkwcU-7Ev3daCgoz9QfzQDC3eKnRPiHU67VxgsOgSCCWtbjKBm4oo7AqBTbBefHdlsFcKD9TytBZ5QZ58j1SWAB83T1guZreSLjGA-f_8-qCuZ3mzbA3jTJvZ3KfDkmq8gLe2XeN5EFjU9JXhHC4-d8SKwvmktgrGzyhM8hjLnseBsAZlT5oa2jEoKKbCy7fLn60SuU"/>
+</div>
+<div class="flex-1">
+<p class="text-[10px] text-amber-600 font-bold uppercase mb-1">Technology</p>
+<h4 class="text-sm font-bold leading-tight line-clamp-2">Tech giants announce new AI infrastructure partnership</h4>
+<p class="text-[10px] text-slate-500 mt-2">4 hours ago • 3 min read</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    const appleRow = document.querySelector("tbody tr");
+
+appleRow.addEventListener("click", function() {
+    window.location.href = "stockdetail.html";
+});
+
+document.getElementById("adharbutton").addEventListener("click", function () {
+    window.location.href = "Digiwallet.html";
+});
+</script>
+</body></html>

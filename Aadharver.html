@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aadhaar Authentication - DigiVerify</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0dccf2",
+              "background-light": "#f5f8f8",
+              "background-dark": "#101f22",
+              "surface-light": "#ffffff",
+              "surface-dark": "#182d32",
+              "border-light": "#cee4e8",
+              "border-dark": "#2a4247",
+              "text-main-light": "#0d191c",
+              "text-main-dark": "#e7f1f4",
+              "text-secondary-light": "#498e9c",
+              "text-secondary-dark": "#8abcc7",
+            },
+            fontFamily: {
+              "display": ["Public Sans", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col antialiased selection:bg-primary/30">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-border-light dark:border-border-dark px-10 py-4 bg-surface-light dark:bg-surface-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-text-main-light dark:text-text-main-dark">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h2 class="text-text-main-light dark:text-text-main-dark text-xl font-bold leading-tight tracking-[-0.015em]">DigiVerify</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-text-main-light dark:text-text-main-dark text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-text-main-light dark:text-text-main-dark text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-text-main-light dark:text-text-main-dark text-sm font-medium hover:text-primary transition-colors" href="#">Help</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-text-main-light text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Login</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center justify-center px-4 py-12 md:px-6">
+<div class="w-full max-w-[1024px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+<!-- Left Column: Hero & Info -->
+<div class="lg:col-span-7 flex flex-col gap-8 order-2 lg:order-1">
+<div class="flex flex-col gap-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit">
+<span class="material-symbols-outlined text-primary text-sm">security</span>
+<span class="text-primary text-xs font-bold uppercase tracking-wide">UIDAI Compliant</span>
+</div>
+<h1 class="text-text-main-light dark:text-text-main-dark text-4xl md:text-5xl font-black leading-tight tracking-tight">
+                        Secure Aadhaar Authentication
+                    </h1>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed max-w-[600px]">
+                        Verify your identity securely using your 12-digit Aadhaar number. We use bank-grade encryption to protect your data and never store your biometrics.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Feature 1 -->
+<div class="flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-main-light dark:text-text-main-dark text-base font-bold">End-to-End Encrypted</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Your data is encrypted at source before transmission.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-main-light dark:text-text-main-dark text-base font-bold">Official Gateway</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Direct verification via official UIDAI channels.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">visibility_off</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-main-light dark:text-text-main-dark text-base font-bold">Privacy First</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">No storage of sensitive biometric information.</p>
+</div>
+</div>
+</div>
+<div class="mt-4 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400 mt-0.5">info</span>
+<p class="text-sm text-blue-800 dark:text-blue-200">
+<strong>Note:</strong> By proceeding, you agree to Aadhaar eKYC terms. An OTP will be sent to the mobile number linked with your Aadhaar.
+                    </p>
+</div>
+</div>
+<!-- Right Column: Auth Card -->
+<div class="lg:col-span-5 w-full order-1 lg:order-2">
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-xl border border-border-light dark:border-border-dark overflow-hidden">
+<!-- Card Header with Abstract Visual -->
+<div class="h-32 bg-cover bg-center relative" data-alt="Abstract blue gradient background pattern" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXzV77TAUSY_jvLb8c7OkjZqkg36y5K2H1uCBKuxNnfpR2nmJC_Hy4UFTnCVJi-SkSaIPo0mKjNne5iMnrqtmCudqY5bP5pbDYty4i3pMG2H8TqY3Jy_uicR82X-8W9SVcJoK33vGK585ZC-3ofOsvJpnLD8mGAOxb7C3-r0lWbw4xNWvZ7NlzaHHsTEaDAR1d4k6I9Jy_OoburYX-UH5KsvW8HyneMFbl_4a_BSjbYm0_T7_0mO4SHT9FC7ay9c-nrsGqqQ0wM6E');">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-light dark:from-surface-dark to-transparent"></div>
+<div class="absolute bottom-4 left-6">
+<h2 class="text-2xl font-bold text-text-main-light dark:text-text-main-dark">Verify Identity</h2>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-6 md:p-8 flex flex-col gap-6">
+<div class="space-y-4">
+<label class="block space-y-2">
+<span class="text-text-main-light dark:text-text-main-dark font-medium text-sm ml-1">Aadhaar Number</span>
+<div class="relative group">
+<input id="aadhaarInput" class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark rounded-xl px-4 py-3.5 pl-12 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-text-secondary-light/60 dark:placeholder:text-text-secondary-dark/60 font-medium tracking-wide" placeholder="0000 0000 0000" type="text"/>
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary-light dark:text-text-secondary-dark group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">id_card</span>
+</div>
+<div class="absolute right-4 top-1/2 -translate-y-1/2">
+<!-- Validation Checkmark (Hidden by default, can be toggled via JS in real app) -->
+<!-- <span class="material-symbols-outlined text-green-500">check_circle</span> -->
+</div>
+</div>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark ml-1">Enter your 12-digit Unique Identification Number</p>
+</label>
+<label class="block space-y-2">
+<!--<span class="text-text-main-light dark:text-text-main-dark font-medium text-sm ml-1">Security Code</span>-->
+<input id="captchaInput" class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark rounded-xl px-4 py-3.5 pl-12 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-text-secondary-light/60 dark:placeholder:text-text-secondary-dark/60" placeholder="Type characters" type="text"/>
+<div class="flex gap-3">
+<div class="relative group flex-1">
+<!--<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark rounded-xl px-4 py-3.5 pl-12 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-text-secondary-light/60 dark:placeholder:text-text-secondary-dark/60" placeholder="Type characters" type="text"/>-->
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary-light dark:text-text-secondary-dark group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">key</span>
+</div>
+</div>
+<div class="w-24 h-[50px] bg-gray-200 dark:bg-gray-700 rounded-xl flex items-center justify-center select-none cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors relative overflow-hidden" title="Refresh Captcha">
+<!-- Mock Captcha Image Background -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 5px 5px;"></div>
+<span class="text-lg font-mono font-bold tracking-widest text-gray-600 dark:text-gray-300 z-10 line-through decoration-wavy">7XK9</span>
+<span class="material-symbols-outlined absolute right-1 top-1 text-[10px] text-gray-500">refresh</span>
+</div>
+</div>
+</label>
+</div>
+<div class="pt-2">
+<button onclick="verifyUser()"class="w-full bg-primary hover:bg-primary/90 text-text-main-light font-bold text-lg py-3.5 rounded-xl shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+<!--<button onclick="verifyUser()" class="w-full bg-primary hover:bg-primary/90 text-text-main-light font-bold text-lg py-3.5 rounded-xl shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2"></button>-->
+    <span>Click To Verify</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+<p class="text-center mt-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                                Having trouble? <a class="text-primary hover:underline font-medium" href="#">Get Help</a>
+</p>
+</div>
+<div class="border-t border-border-light dark:border-border-dark pt-4 flex justify-between items-center text-xs text-text-secondary-light dark:text-text-secondary-dark">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>256-bit SSL Secure</span>
+</div>
+<span>v2.4.0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark py-8 px-10">
+<div class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">© 2024 DigiVerify Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary text-sm transition-colors" href="#">Privacy Policy</a>
+<a class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary text-sm transition-colors" href="#">Terms of Service</a>
+<a class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary text-sm transition-colors" href="#">Security</a>
+</div>
+</div>
+</footer>
+<script>
+function verifyUser() {
+
+  // Remove spaces from input for clean comparison
+  let aadhaar = document.getElementById("aadhaarInput").value.replace(/\s/g, "");
+
+  // Allowed demo Aadhaar numbers
+  const validAadhaars = [
+    "250598516636",
+    "790483649981"
+  ];
+
+  if (!validAadhaars.includes(aadhaar)) {
+    alert("Invalid Aadhaar Number ❌");
+    return;
+  }
+
+  alert("Aadhaar Verified Successfully ✅");
+
+  // continue your OTP flow or redirect
+}
+
+
+function verifyUser() {
+
+  let aadhaar = document.getElementById("aadhaarInput").value.replace(/\s/g, "");
+  let captcha = document.getElementById("captchaInput").value.trim();
+
+  const validAadhaars = [
+    "250598516636",
+    "790483649981"
+  ];
+
+  const correctCaptcha = "7XK9";
+
+  if (!validAadhaars.includes(aadhaar)) {
+    alert("Invalid Aadhaar Number ❌");
+    return;
+  }
+
+  if (captcha !== correctCaptcha) {
+    alert("Wrong Security Code ❌ (Use 7XK9)");
+    return;
+  }
+
+  // ✅ Show success popup
+  alert("Aadhaar Verified Successfully ✅");
+
+  // ✅ After clicking OK, redirect
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body></html>

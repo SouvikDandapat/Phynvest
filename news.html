@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f172a",
+                        "accent-blue": "#1152d4",
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                        "border-light": "#e2e8f0",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>Trending News - FinancePro</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 md:px-10 py-4">
+<div class="max-w-5xl mx-auto flex items-center justify-between gap-8">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary dark:bg-accent-blue text-white p-1.5 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold tracking-tight">FinancePro</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-accent-blue transition-colors" href="#">Markets</a>
+<a class="text-primary dark:text-white text-sm font-bold border-b-2 border-primary dark:border-white" href="#">Trending</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-accent-blue transition-colors" href="#">Portfolio</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Profile" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzIGFxxfRqcs5GQ-ZAeU0sDH8HJAzhDKLSlfe6wp7PZWbOMjAcGr_v_A9ezCr-GbLmJ8M_OlDnrEeCpnYVDnvVLVQryNPQzhTXZCovlQi5k_jSrOhjPHP1tWjTLphn_QCyQ8z7lkN50Ny5u8EJn3dmOdFrJ9MJjp25WL2Hnk7HaRN60TNchV00udumRKktlJ5eE9_Gj1HOYJYI8cn8DprjHyCHmxbpeePFKbevBbCtmhkXavJ3Xc9BtROqeWCoNEJm5SwCcUnJQso"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto w-full px-6 py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-8">
+<div class="mb-10">
+<h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Trending News</h1>
+<p class="text-slate-500 dark:text-slate-400">Real-time market analysis and financial updates.</p>
+</div>
+<div class="flex flex-col space-y-8">
+<article class="flex gap-6 group">
+<div class="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-slate-100">
+<img alt="News" class="w-full h-full object-cover transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUPdHYTVnxCXLMo3EFKoNyYhpN9Cqn0T_irH9lMv6Pab_lJ1rjM2eVLpKdOC0w-wingp8K9rDqrCDJrRJ4GpC3f3Whje24zrtMjMJxr63fOzoUJX2X5_p2xwcx3xZXOuGAch93K424ropBtTRAkSD07SyrVs8iLL8N7yDkltpoNcU1IvZnJqgShjUPq71f2GAT7NarBBn673yEsaqRZ8qxQxCAebBfa1-LHVFa3P-YfSghDLEumLNPA4rddMwUosFOdZFPdKWzrV0"/>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-accent-blue transition-colors">
+                                        Fed Signals Potential Rate Cut As Global Inflation Data Cools
+                                    </h3>
+<span class="flex-shrink-0 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded">Markets</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1 mb-2">Jerome Powell hints at a more dovish stance in upcoming meetings, sparking a massive rally.</p>
+<div class="flex items-center gap-3 text-xs font-medium text-slate-400">
+<span class="text-slate-600 dark:text-slate-300">Reuters</span>
+<span>•</span>
+<span>12 mins ago</span>
+</div>
+</div>
+</article>
+<article class="flex gap-6 group">
+<div class="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-slate-100">
+<img alt="News" class="w-full h-full object-cover transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXg1u7Na92ZDtmq8T7jx0JAz_-SS7JOBC7_yQKvcnhhpXm0nUPmg8KH7krZalnHfwNQaSNM_aKRPS2cXz1PSnreofsabE_TnENXPjdSq2SV4FQSAlIPAz5ErYmtLGoJNEhtLgzzByTkmzxFHaPBg4oTci2-Pxp8wFGtEgbUOR-iA0f5Kr6Tb1T8Zbw3qUEY55CdKLafTtTj-U8B7ZCTZfuKKqoqJem1i-XFSFKBOLKiaoqTX0zZdHra37goTYshW6-bU5kGviywsU"/>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-accent-blue transition-colors">
+                                        Gold Prices Surge to Record High Amid Geopolitical Uncertainty
+                                    </h3>
+<span class="flex-shrink-0 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded">Economy</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1 mb-2">Safe-haven demand intensifies as investors look for stability in a volatile global market.</p>
+<div class="flex items-center gap-3 text-xs font-medium text-slate-400">
+<span class="text-slate-600 dark:text-slate-300">Bloomberg</span>
+<span>•</span>
+<span>2 hours ago</span>
+</div>
+</div>
+</article>
+<article class="flex gap-6 group">
+<div class="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-slate-100">
+<img alt="News" class="w-full h-full object-cover transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-6Px-cXzzCsQ6sW2MzSo-rL8-ZUx2AKE34faVaEWW36fyp974B2IHGjuxKTs6304ao4UouAn5X6KuyKvnb9sxTqV1gumxx45KEayP9wkqI2pnoJfi4HrlQ05LlmlSywq31PN-jMkML8y9AMsotHYWM4i2Lu9VylJQdpo-wn1VXOyt2R3ruaAOM984WNc7O-Hdm68p-Hmku9g1FXRClS8_S9fLCkJd_JaiZN2n0Q-HiY2OeTb1prjqCNHejo0oOCrzrHZzqDno6iY"/>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-accent-blue transition-colors">
+                                        Ethereum Layer 2 Adoption Hits All-Time High as Gas Fees Drop
+                                    </h3>
+<span class="flex-shrink-0 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded">Tech</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1 mb-2">The ecosystem sees a massive influx of daily active users following recent technical upgrades.</p>
+<div class="flex items-center gap-3 text-xs font-medium text-slate-400">
+<span class="text-slate-600 dark:text-slate-300">Financial Times</span>
+<span>•</span>
+<span>4 hours ago</span>
+</div>
+</div>
+</article>
+<article class="flex gap-6 group">
+<div class="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-slate-100">
+<img alt="News" class="w-full h-full object-cover transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy0ftMYG23SXfe_zilMQYQ25Oi9TcqBgMoyFKuiST0Boncg6hQLe3aY40bPYmG3xw92XFfebFrL4lUe9jlkAWxzRhdVwiZkKkWnslN5zJVs4YS3deMD1on489oOQxlGC0VWnWJABOmXTHswpu16I_WDVBltMcbmyRQtu7iBFZW_VeZl_tlDsm1jBJ2t-_Aa6n0smO35GLLoFBNbQh_fUrGT39iT7_b9kYG2caF_eaS7Dm8lkaze0uXuGKTy4bUu9AV98CuGfiPkGw"/>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-accent-blue transition-colors">
+                                        Big Tech Earnings Preview: What to Expect from Leading Firms
+                                    </h3>
+<span class="flex-shrink-0 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded">Markets</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1 mb-2">Analysts predict another blockbuster quarter driven by AI infrastructure spending.</p>
+<div class="flex items-center gap-3 text-xs font-medium text-slate-400">
+<span class="text-slate-600 dark:text-slate-300">MarketWatch</span>
+<span>•</span>
+<span>6 hours ago</span>
+</div>
+</div>
+</article>
+<article class="flex gap-6 group">
+<div class="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-slate-100">
+<img alt="News" class="w-full h-full object-cover transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpo7YrI9qU4NSO-p-oxlY1va74eXvuPvgT1bUMQ2OAeZx5IIws2TEmVIrxZHz_nwYBRdb4fn1B3BjSZgJbqERmxRZMq0dDLp-WSQ78viZzFkZzuIKvjlKxl2l1hicBSGFvDWCLLG8U8tTULKcqjRZ9hhswTc8xuwp8y7i0vyjKklFR56q75J0JV2KRH3nUQpf3itnrh_TwkE-2rL7mTujWEKHOE_Fz74_EMmZxEzRi46NqovJgVKqxG-vdmUKQjJ_fHX3hLnPOvIk"/>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-accent-blue transition-colors">
+                                        Green Bonds Seeing Unprecedented Inflows from Institutional Funds
+                                    </h3>
+<span class="flex-shrink-0 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded">ESG</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1 mb-2">Pension funds are shifting focus towards ESG-compliant assets as regulatory pressures mount.</p>
+<div class="flex items-center gap-3 text-xs font-medium text-slate-400">
+<span class="text-slate-600 dark:text-slate-300">Reuters</span>
+<span>•</span>
+<span>8 hours ago</span>
+</div>
+</div>
+</article>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800">
+<button class="text-sm font-bold text-slate-900 dark:text-white hover:text-accent-blue flex items-center gap-2">
+                            View all trending news
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<aside class="lg:col-span-4">
+<div class="sticky top-24">
+<h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">Trending Topics</h3>
+<div class="flex flex-wrap gap-2">
+<a class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500 transition-colors" href="#">#FederalReserve</a>
+<a class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500 transition-colors" href="#">#StockMarket</a>
+<a class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500 transition-colors" href="#">#Cryptocurrency</a>
+<a class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500 transition-colors" href="#">#Inflation</a>
+<a class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500 transition-colors" href="#">#GoldPrice</a>
+<a class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500 transition-colors" href="#">#AIStocks</a>
+</div>
+<div class="mt-12 p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">Market Alert</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Get instant notifications on major market moves and breaking news.</p>
+<button class="w-full py-2.5 bg-primary dark:bg-white text-white dark:text-primary rounded-lg text-xs font-bold hover:opacity-90 transition-opacity">
+                                Enable Alerts
+                            </button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark py-12">
+<div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<p class="text-slate-400 text-xs font-medium">© 2024 FinancePro Inc. Data delayed by 15 mins.</p>
+</div>
+<div class="flex items-center gap-6 text-xs font-bold text-slate-400">
+<a class="hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Privacy</a>
+<a class="hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Terms</a>
+<a class="hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Help</a>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
